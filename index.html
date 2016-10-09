@@ -180,6 +180,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-develop">
+          <a href="/categories/iOS" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-apple"></i> <br />
+            
+            开发
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-something">
           <a href="/categories/something" rel="section">
             
@@ -226,6 +236,201 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/09/iOS10Privacy/" itemprop="url">
+                  iOS 10 配置隐私数据权限
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-09T10:40:00+08:00" content="2016-10-09">
+              2016-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/iOS10Privacy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/iOS10Privacy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>iOS 10 中的其中一个改变是对于隐私数据的保护。</p>
+<pre><code>You must statically declare your app’s intended use of protected data classes 
+by including the appropriate purpose string keys in your Info.plist file.
+</code></pre><p>大意为：你必须在 app 中的 info.plist 声明一个 string key 来表达你想使用受保护数据的目的。</p>
+<p>因此，当需要使用受保护数据时，就需要在自己的 info.plist 中声明一下，如下图：</p>
+<p><img src="http://7xngzr.com1.z0.glb.clouddn.com/info.plist%20%E6%88%AA%E5%9B%BE.png" alt=""></p>
+<hr>
+<p>iOS 10 中需要进行这项操作的用户数据包括：</p>
+<p><img src="http://7xngzr.com1.z0.glb.clouddn.com/iOS%2010%20Privacy%20.png" alt=""></p>
+<p>对应为；</p>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文</th>
+<th>英文</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contacts</td>
+<td>通讯录</td>
+<td>Health</td>
+<td>健康</td>
+</tr>
+<tr>
+<td>Calendar</td>
+<td>日历</td>
+<td>HomeKit</td>
+<td>家庭</td>
+</tr>
+<tr>
+<td>Reminders</td>
+<td>提醒事项</td>
+<td>Media Library</td>
+<td>媒体资料库 </td>
+</tr>
+<tr>
+<td>Photos</td>
+<td>照片</td>
+<td>Motion and Fitness</td>
+<td>运动与健身</td>
+</tr>
+<tr>
+<td>Bluetooth Sharing</td>
+<td>蓝牙共享</td>
+<td>CallKit</td>
+<td>CallKit </td>
+</tr>
+<tr>
+<td>Microphone</td>
+<td>麦克风</td>
+<td>Speech Recognition</td>
+<td>语音识别 </td>
+</tr>
+<tr>
+<td>Camera</td>
+<td>相机</td>
+<td>SiriKit</td>
+<td>Siri</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>位置</td>
+<td>TV provider</td>
+<td>TV provider</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<p>如果不在 info.plist 中设置相应的 Key 会直接 crash；</p>
+<p>如果只设置了 Key，但是不填写 Value，应用提交 store 会被拒绝。</p>
+<hr>
+<p>附：<a href="https://github.com/lichang0716/iOS10PrivacyDemo" target="_blank" rel="external">iOS 10 Privacy Demo</a></p>
+<p>参考：<a href="http://www.jianshu.com/p/616240463a7a" target="_blank" rel="external">http://www.jianshu.com/p/616240463a7a</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -514,7 +719,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -522,7 +727,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
