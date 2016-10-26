@@ -84,16 +84,43 @@
 
 
 
-<meta name="description" content="Test Default">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://amute.xyz/about/index.html">
+<meta name="description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
+比如：How to remove CocoaPods from a project? - Stack Overflow.
+这里自己再整理一遍.
+当前环境：
+Project: Objective-C
+Xcode: 8.1 GM
+Pod: 1.0.0.beta.3
+步骤：
+
+删除项目文件夹中的 Podfi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移除项目中的 CocoaPods">
+<meta property="og:url" content="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/index.html">
 <meta property="og:site_name" content="Pwnlc's Blog">
-<meta property="og:description" content="Test Default">
-<meta property="og:updated_time" content="2016-08-29T09:07:40.000Z">
+<meta property="og:description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
+比如：How to remove CocoaPods from a project? - Stack Overflow.
+这里自己再整理一遍.
+当前环境：
+Project: Objective-C
+Xcode: 8.1 GM
+Pod: 1.0.0.beta.3
+步骤：
+
+删除项目文件夹中的 Podfi">
+<meta property="og:updated_time" content="2016-10-26T08:12:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="Test Default">
+<meta name="twitter:title" content="移除项目中的 CocoaPods">
+<meta name="twitter:description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
+比如：How to remove CocoaPods from a project? - Stack Overflow.
+这里自己再整理一遍.
+当前环境：
+Project: Objective-C
+Xcode: 8.1 GM
+Pod: 1.0.0.beta.3
+步骤：
+
+删除项目文件夹中的 Podfi">
 
 
 
@@ -114,15 +141,9 @@
 
 
 
-  <link rel="canonical" href="http://amute.xyz/about/"/>
+  <link rel="canonical" href="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/"/>
 
-  <title>
-  
-
-  
-    About Me | Pwnlc's Blog
-  
-</title>
+  <title> 移除项目中的 CocoaPods | Pwnlc's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +164,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -243,10 +264,160 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <p>Test Default</p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移除项目中的 CocoaPods
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-26T15:47:34+08:00" content="2016-10-26">
+              2016-10-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/26/移除项目中的 CocoaPods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/移除项目中的 CocoaPods/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。</p>
+<p>比如：<a href="http://stackoverflow.com/questions/16427421/how-to-remove-cocoapods-from-a-project" target="_blank" rel="external">How to remove CocoaPods from a project? - Stack Overflow</a>.</p>
+<p>这里自己再整理一遍.</p>
+<p>当前环境：</p>
+<pre><code>Project: Objective-C
+Xcode: 8.1 GM
+Pod: 1.0.0.beta.3
+</code></pre><p>步骤：</p>
+<ul>
+<li>删除项目文件夹中的 <strong>Podfile</strong> , <strong>Podfile.lock</strong> 和 <strong>Pods 文件夹</strong>；</li>
+<li>删除生成的 <strong>.xcworkspce</strong> 文件</li>
+<li>从 <strong>.xcodeproj</strong> 打开项目，删除对应 <strong>targets -&gt; General -&gt; Linked Frameworks and Libraries -&gt; libPods.a</strong></li>
+<li>在对应 <strong>targets -&gt; Build Phases</strong>，删除 <strong>Copy Pods Resources</strong>，<strong>Embed Pods Frameworks</strong> 以及 <strong>Check Pods Manifest.lock</strong></li>
+</ul>
+<p>到这里操作基本完成。</p>
+<hr>
+<p>但是在我的项目中此时出现了大量的 <strong>Warning</strong>，大都提示为 missing file 之类。</p>
+<p>后来发现原因是因为使用了 git， 这时对项目进行一次 <strong>commit</strong> 操作即可修复这些警告。</p>
+<hr>
+<p>同时发现了一个插件，应该可以取代部分手动操作，还没有实验，这里先贴出来地址：</p>
+<p><a href="https://github.com/CocoaPods/cocoapods-deintegrate" target="_blank" rel="external">cocoapods-deintegrate - GitHub</a></p>
+<p>有兴趣可以试一下。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/09/iOS10Privacy/" rel="next" title="iOS 10 配置隐私数据权限">
+                <i class="fa fa-chevron-left"></i> iOS 10 配置隐私数据权限
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -255,6 +426,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/26/移除项目中的 CocoaPods/"
+           data-title="移除项目中的 CocoaPods" data-url="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -274,8 +453,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -318,6 +506,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -421,6 +620,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

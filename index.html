@@ -258,6 +258,147 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/26/移除项目中的 CocoaPods/" itemprop="url">
+                  移除项目中的 CocoaPods
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-26T15:47:34+08:00" content="2016-10-26">
+              2016-10-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/26/移除项目中的 CocoaPods/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/移除项目中的 CocoaPods/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。</p>
+<p>比如：<a href="http://stackoverflow.com/questions/16427421/how-to-remove-cocoapods-from-a-project" target="_blank" rel="external">How to remove CocoaPods from a project? - Stack Overflow</a>.</p>
+<p>这里自己再整理一遍.</p>
+<p>当前环境：</p>
+<pre><code>Project: Objective-C
+Xcode: 8.1 GM
+Pod: 1.0.0.beta.3
+</code></pre><p>步骤：</p>
+<ul>
+<li>删除项目文件夹中的 <strong>Podfile</strong> , <strong>Podfile.lock</strong> 和 <strong>Pods 文件夹</strong>；</li>
+<li>删除生成的 <strong>.xcworkspce</strong> 文件</li>
+<li>从 <strong>.xcodeproj</strong> 打开项目，删除对应 <strong>targets -&gt; General -&gt; Linked Frameworks and Libraries -&gt; libPods.a</strong></li>
+<li>在对应 <strong>targets -&gt; Build Phases</strong>，删除 <strong>Copy Pods Resources</strong>，<strong>Embed Pods Frameworks</strong> 以及 <strong>Check Pods Manifest.lock</strong></li>
+</ul>
+<p>到这里操作基本完成。</p>
+<hr>
+<p>但是在我的项目中此时出现了大量的 <strong>Warning</strong>，大都提示为 missing file 之类。</p>
+<p>后来发现原因是因为使用了 git， 这时对项目进行一次 <strong>commit</strong> 操作即可修复这些警告。</p>
+<hr>
+<p>同时发现了一个插件，应该可以取代部分手动操作，还没有实验，这里先贴出来地址：</p>
+<p><a href="https://github.com/CocoaPods/cocoapods-deintegrate" target="_blank" rel="external">cocoapods-deintegrate - GitHub</a></p>
+<p>有兴趣可以试一下。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/09/iOS10Privacy/" itemprop="url">
                   iOS 10 配置隐私数据权限
                 </a>
@@ -719,7 +860,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
