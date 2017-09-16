@@ -246,6 +246,274 @@
   
   
 
+  <article class="post post-type-something " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/26/赡养人类/" itemprop="url">
+                  赡养人类
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-26T14:00:00+08:00" content="2018-04-26">
+              2018-04-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/something/" itemprop="url" rel="index">
+                    <span itemprop="name">something</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/04/26/赡养人类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/26/赡养人类/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>「赡养人类」比「北京折叠」好看。</p>
+<hr>
+<p>短篇小说阅读起来比中长篇承担的风险要小很多，</p>
+<p>毕竟不是所有的出版物都值得一读。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/21/twitter login/" itemprop="url">
+                  Twitter Login
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-21T12:00:00+08:00" content="2017-06-21">
+              2017-06-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/21/twitter login/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/21/twitter login/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>开发者网址：<a href="https://dev.twitter.com/" target="_blank" rel="external">dev.twitter.com</a></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>首先需要注册 twitter 开发者账号，</p>
+<p>之后进入 <a href="https://apps.twitter.com/" target="_blank" rel="external">apps.twitter.com</a> 创建应用。</p>
+<p>创建应用必须要填写 <strong>Name</strong>，<strong>Description</strong>，<strong>Website</strong> 三项。</p>
+<p>关于 <strong>Callback URL</strong> ：</p>
+<p>测试当通过 <strong>App</strong> 进行授权登录时，可以为空；</p>
+<p>当通过<strong>网页</strong>授权登录时，必须要填写 URL，否则会提示下面所示的错误：</p>
+<p><code>[TwitterKit] did encounter error with message &quot;Error obtaining user auth token.&quot;</code></p>
+<p>创建应用后，在 Keys and Access Tokens 页面获取 <strong>Consumer Key</strong> 和 <strong>Consumer Secret</strong>。 </p>
+<h3 id="工程"><a href="#工程" class="headerlink" title="工程"></a>工程</h3><p><strong>配置</strong>工程：<a href="https://dev.twitter.com/twitterkit/ios/installation" target="_blank" rel="external">twitterkit iOS installation</a></p>
+<ul>
+<li>在项目中导入 <a href="https://dev.twitter.com/twitterkit/ios/installation" target="_blank" rel="external">iOS SDK</a></li>
+<li>在项目 App Delegate 中初始化 Twitter 类</li>
+<li>在 info.plist 中配置 URLSchemes 和 LSApplicationQueriesSchemes</li>
+<li>如果使用网页登录，需要添加 SafariServices.framework</li>
+</ul>
+<p><strong>登录</strong>步骤：<a href="https://dev.twitter.com/twitterkit/ios/log-in-with-twitter" target="_blank" rel="external">twitterkit iOS login</a></p>
+<ul>
+<li><p>在 ViewController 中添加 TWTRLogInButton 或者自定义按钮添加 logInWithCompletion 动作</p>
+</li>
+<li><p>在 -application:openURL:options: 中实现 -twitter:openURL:options 方法，</p>
+<p>此方法会在返回自己应用的时候，对 token 进行保存操作。</p>
+</li>
+</ul>
+<p>登录成功后，在回调里的 TWTRSession 对象中获取 token，username，userid 等信息。</p>
+<p>Demo 地址：<a href="https://github.com/lichang0716/OAuth-TwitterLogin" target="_blank" rel="external">Twitter Login - Swift</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
 
     
@@ -860,7 +1128,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -907,7 +1175,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
