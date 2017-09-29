@@ -332,12 +332,57 @@
 <p><img src="http://oersnre8d.bkt.clouddn.com/result.png?imageView2/2/w/300" alt=""></p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>UIView 和 CALayer 的关系在这里不多说，CALayer 主要的作用是绘制。</p>
 <p>目前假设一个 UIImageView 叫 <strong>avatarImageView</strong>，那么方法为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 设置 layer 以外的区域不显示，默认为 NO</div><div class="line">avatarImageView.layer.masksToBounds = YES;</div><div class="line">// 设置 layer 的圆角</div><div class="line">avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.height/2;</div><div class="line">// 设置 layer 边框颜色和宽度</div><div class="line">avatarImageView.layer.borderWidth = 3.0;</div><div class="line">avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;</div></pre></td></tr></table></figure>
-<h3 id="Duartz2D"><a href="#Duartz2D" class="headerlink" title="Duartz2D"></a>Duartz2D</h3><p>直接提供方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> 获取圆形图片</div><div class="line"></div><div class="line"> @param originImage 原图</div><div class="line"> @param borderWidth 边框宽度</div><div class="line"> @param borderColor 边框颜色</div><div class="line"> @return 返回圆形图片</div><div class="line"> */</div><div class="line">- (UIImage *)getRoundAvatar:(UIImage *)originImage borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor &#123;</div><div class="line">    // 定义新图片的尺寸</div><div class="line">    CGFloat bigImageWidth = originImage.size.width + 2 * borderWidth;</div><div class="line">    CGFloat bigImageHeight = originImage.size.height + 2 * borderWidth;</div><div class="line">    CGSize imageSize = CGSizeMake(bigImageWidth, bigImageHeight);</div><div class="line">    // 开启上下文</div><div class="line">    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);</div><div class="line">    // 取得当前上下文</div><div class="line">    CGContextRef ctx = UIGraphicsGetCurrentContext();</div><div class="line">    // 设置边框颜色</div><div class="line">    [borderColor set];</div><div class="line">    // 设置边框</div><div class="line">    CGFloat bigRadius = bigImageWidth / 2.0;</div><div class="line">    CGFloat centerX = bigRadius;</div><div class="line">    CGFloat centerY = bigRadius;</div><div class="line">    CGContextAddArc(ctx, centerX, centerY, bigRadius, 0, M_PI * 2, 0);</div><div class="line">    CGContextFillPath(ctx);</div><div class="line">    // 设置小圆</div><div class="line">    CGFloat smallRadius = bigRadius - borderWidth;</div><div class="line">    CGContextAddArc(ctx, centerY, centerY, smallRadius, 0, M_PI * 2, 0);</div><div class="line">    // 裁剪</div><div class="line">    CGContextClip(ctx);</div><div class="line">    // 画图</div><div class="line">    [originImage drawInRect:CGRectMake(borderWidth, borderWidth, originImage.size.width, originImage.size.height)];</div><div class="line">    // 获取新图片</div><div class="line">    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">    // 结束上下文</div><div class="line">    UIGraphicsEndImageContext();</div><div class="line">    return newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>调用方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[avatarImageView setImage:[self getRoundAvatar:[UIImage imageNamed:@&quot;somePic.jpg&quot;]</div><div class="line">                                   borderWidth:3.0</div><div class="line">                                   borderColor:[UIColor whiteColor]]];</div></pre></td></tr></table></figure>
-<h3 id="Storyboard-Xib-设置"><a href="#Storyboard-Xib-设置" class="headerlink" title="Storyboard / Xib 设置"></a>Storyboard / Xib 设置</h3><p>在 <strong>Identity inspector</strong> 中的 <strong>User Defined Runtime Attribute</strong> 添加如下信息：</p>
+<pre><code>// 设置 layer 以外的区域不显示，默认为 NO
+avatarImageView.layer.masksToBounds = YES;
+// 设置 layer 的圆角
+avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.height/2;
+// 设置 layer 边框颜色和宽度
+avatarImageView.layer.borderWidth = 3.0;
+avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+</code></pre><h3 id="Duartz2D"><a href="#Duartz2D" class="headerlink" title="Duartz2D"></a>Duartz2D</h3><p>直接提供方法：</p>
+<pre><code>/**
+ 获取圆形图片
+
+ @param originImage 原图
+ @param borderWidth 边框宽度
+ @param borderColor 边框颜色
+ @return 返回圆形图片
+ */
+- (UIImage *)getRoundAvatar:(UIImage *)originImage borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor {
+    // 定义新图片的尺寸
+    CGFloat bigImageWidth = originImage.size.width + 2 * borderWidth;
+    CGFloat bigImageHeight = originImage.size.height + 2 * borderWidth;
+    CGSize imageSize = CGSizeMake(bigImageWidth, bigImageHeight);
+    // 开启上下文
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
+    // 取得当前上下文
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    // 设置边框颜色
+    [borderColor set];
+    // 设置边框
+    CGFloat bigRadius = bigImageWidth / 2.0;
+    CGFloat centerX = bigRadius;
+    CGFloat centerY = bigRadius;
+    CGContextAddArc(ctx, centerX, centerY, bigRadius, 0, M_PI * 2, 0);
+    CGContextFillPath(ctx);
+    // 设置小圆
+    CGFloat smallRadius = bigRadius - borderWidth;
+    CGContextAddArc(ctx, centerY, centerY, smallRadius, 0, M_PI * 2, 0);
+    // 裁剪
+    CGContextClip(ctx);
+    // 画图
+    [originImage drawInRect:CGRectMake(borderWidth, borderWidth, originImage.size.width, originImage.size.height)];
+    // 获取新图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 结束上下文
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+</code></pre><p>调用方式：</p>
+<pre><code>[avatarImageView setImage:[self getRoundAvatar:[UIImage imageNamed:@&quot;somePic.jpg&quot;]
+                                   borderWidth:3.0
+                                   borderColor:[UIColor whiteColor]]];
+</code></pre><h3 id="Storyboard-Xib-设置"><a href="#Storyboard-Xib-设置" class="headerlink" title="Storyboard / Xib 设置"></a>Storyboard / Xib 设置</h3><p>在 <strong>Identity inspector</strong> 中的 <strong>User Defined Runtime Attribute</strong> 添加如下信息：</p>
 <p><img src="http://oersnre8d.bkt.clouddn.com/storyboardSetting.png?imageView2/2/w/600" alt=""></p>
 <p>这里其实和 CALayer 的设置方法一致。</p>
 <p>但是因为 border color 的类型为 <strong>CGColor</strong> ，所以在这里设置并不会起作用，会始终为黑色。</p>
