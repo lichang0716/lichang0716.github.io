@@ -880,6 +880,153 @@ avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
             
               
                 
+                <a class="post-title-link" href="/2017/03/10/MultiGesture/" itemprop="url">
+                  iOS View 添加多个手势
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-10T14:24:00+08:00" content="2017-03-10">
+              2017-03-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/10/MultiGesture/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/MultiGesture/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>iOS Gesture (手势) 是一个比较常用的东西，在开发手势时需要用到 UIGestureRecognizer 类。</p>
+<p>UIGestureRecognizer 继承自 NSObject。</p>
+<p>它的子类有 6 个：</p>
+<pre><code>UITapGestureRecognizer          点击
+UIPinchGestureRecognizer        缩放    
+UIRotationGestureRecognizer        旋转
+UISwipeGestureRecognizer        滑动
+UIPanGestureRecognizer            拖动
+UILongPressGestureRecognizer    长按    
+</code></pre><p>一个手势对象只可以作用于一个 View，但是一个 View 可以添加多个手势。</p>
+<p>那么如何可以让多个手势同时作用于 View 呢？下面是个小例子。</p>
+<p>假设有一个 UIImageView 对象：imageView（原谅这个命名…）</p>
+<p>首先需要设置让 View 可以接受我们的事件和消息：</p>
+<pre><code>imageView.userInteractionEnabled = YES;
+</code></pre><p>之后添加旋转和缩放手势：</p>
+<pre><code>// 添加缩放手势
+UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+pinchGesture.delegate = self;
+[imageView addGestureRecognizer:pinchGesture];
+// 添加旋转手势
+UIRotationGestureRecognizer *roationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRoation:)];
+[imageView addGestureRecognizer:roationGesture];
+</code></pre><p>要让一个 View 同时相应多个 Gesture ，需要实现 <strong>UIGestureRecognizerDelegate</strong> 中的:</p>
+<pre><code>- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 设置允许支持多个手势，默认不支持
+    return YES;
+}
+</code></pre><p>这样就可以用两个手指让图片同时旋转和缩放。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/26/移除项目中的 CocoaPods/" itemprop="url">
                   移除项目中的 CocoaPods
                 </a>
@@ -1482,7 +1629,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

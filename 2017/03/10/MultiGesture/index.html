@@ -84,15 +84,31 @@
 
 
 
-<meta name="description" content="Later Equals Never.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pwnlc's Blog">
-<meta property="og:url" content="http://amute.xyz/archives/2017/09/index.html">
+<meta name="description" content="iOS Gesture (手势) 是一个比较常用的东西，在开发手势时需要用到 UIGestureRecognizer 类。
+UIGestureRecognizer 继承自 NSObject。
+它的子类有 6 个：
+UITapGestureRecognizer          点击
+UIPinchGestureRecognizer        缩放    
+UIRotationGestureRe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS View 添加多个手势">
+<meta property="og:url" content="http://amute.xyz/2017/03/10/MultiGesture/index.html">
 <meta property="og:site_name" content="Pwnlc's Blog">
-<meta property="og:description" content="Later Equals Never.">
+<meta property="og:description" content="iOS Gesture (手势) 是一个比较常用的东西，在开发手势时需要用到 UIGestureRecognizer 类。
+UIGestureRecognizer 继承自 NSObject。
+它的子类有 6 个：
+UITapGestureRecognizer          点击
+UIPinchGestureRecognizer        缩放    
+UIRotationGestureRe">
+<meta property="og:updated_time" content="2017-10-10T13:10:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pwnlc's Blog">
-<meta name="twitter:description" content="Later Equals Never.">
+<meta name="twitter:title" content="iOS View 添加多个手势">
+<meta name="twitter:description" content="iOS Gesture (手势) 是一个比较常用的东西，在开发手势时需要用到 UIGestureRecognizer 类。
+UIGestureRecognizer 继承自 NSObject。
+它的子类有 6 个：
+UITapGestureRecognizer          点击
+UIPinchGestureRecognizer        缩放    
+UIRotationGestureRe">
 
 
 
@@ -113,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://amute.xyz/archives/2017/09/"/>
+  <link rel="canonical" href="http://amute.xyz/2017/03/10/MultiGesture/"/>
 
-  <title> 归档 | Pwnlc's Blog </title>
+  <title> iOS View 添加多个手势 | Pwnlc's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,66 +250,173 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 9 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS View 添加多个手势
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-10T14:24:00+08:00" content="2017-03-10">
+              2017-03-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/10/MultiGesture/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/10/MultiGesture/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>iOS Gesture (手势) 是一个比较常用的东西，在开发手势时需要用到 UIGestureRecognizer 类。</p>
+<p>UIGestureRecognizer 继承自 NSObject。</p>
+<p>它的子类有 6 个：</p>
+<pre><code>UITapGestureRecognizer          点击
+UIPinchGestureRecognizer        缩放    
+UIRotationGestureRecognizer        旋转
+UISwipeGestureRecognizer        滑动
+UIPanGestureRecognizer            拖动
+UILongPressGestureRecognizer    长按    
+</code></pre><p>一个手势对象只可以作用于一个 View，但是一个 View 可以添加多个手势。</p>
+<p>那么如何可以让多个手势同时作用于 View 呢？下面是个小例子。</p>
+<p>假设有一个 UIImageView 对象：imageView（原谅这个命名…）</p>
+<p>首先需要设置让 View 可以接受我们的事件和消息：</p>
+<pre><code>imageView.userInteractionEnabled = YES;
+</code></pre><p>之后添加旋转和缩放手势：</p>
+<pre><code>// 添加缩放手势
+UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+pinchGesture.delegate = self;
+[imageView addGestureRecognizer:pinchGesture];
+// 添加旋转手势
+UIRotationGestureRecognizer *roationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRoation:)];
+[imageView addGestureRecognizer:roationGesture];
+</code></pre><p>要让一个 View 同时相应多个 Gesture ，需要实现 <strong>UIGestureRecognizerDelegate</strong> 中的:</p>
+<pre><code>- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // 设置允许支持多个手势，默认不支持
+    return YES;
+}
+</code></pre><p>这样就可以用两个手指让图片同时旋转和缩放。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/26/移除项目中的 CocoaPods/" rel="next" title="移除项目中的 CocoaPods">
+                <i class="fa fa-chevron-left"></i> 移除项目中的 CocoaPods
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/21/twitter login/" rel="prev" title="Twitter Login">
+                Twitter Login <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
         </div>
       
-      
 
       
-
-  <article class="post post-type-develop" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/29/RoundAvatar/" itemprop="url">
-              
-                <span itemprop="name">iOS 圆形头像</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-29T23:01:00+08:00"
-              content="2017-09-29" >
-          09-29
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -301,6 +424,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/10/MultiGesture/"
+           data-title="iOS View 添加多个手势" data-url="http://amute.xyz/2017/03/10/MultiGesture/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -320,8 +451,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -364,6 +504,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -467,11 +618,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
