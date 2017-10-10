@@ -84,15 +84,25 @@
 
 
 
-<meta name="description" content="Later Equals Never.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pwnlc's Blog">
-<meta property="og:url" content="http://amute.xyz/categories/something/index.html">
+<meta name="description" content="最近遇到一个面试题：如何把一个 1080P 的图片，修改为和设备屏幕宽度相同高度等比例的图片。当时没答上来，回来查了一下相关的知识点，记录一下。
+压缩和剪切图片：
+// 原始图片
+NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@&amp;quot;http://oersnre8d.bkt.clouddn.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 图片压缩剪裁">
+<meta property="og:url" content="http://amute.xyz/2017/10/10/ProcessImage/index.html">
 <meta property="og:site_name" content="Pwnlc's Blog">
-<meta property="og:description" content="Later Equals Never.">
+<meta property="og:description" content="最近遇到一个面试题：如何把一个 1080P 的图片，修改为和设备屏幕宽度相同高度等比例的图片。当时没答上来，回来查了一下相关的知识点，记录一下。
+压缩和剪切图片：
+// 原始图片
+NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@&amp;quot;http://oersnre8d.bkt.clouddn.com">
+<meta property="og:updated_time" content="2017-10-10T06:39:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pwnlc's Blog">
-<meta name="twitter:description" content="Later Equals Never.">
+<meta name="twitter:title" content="iOS 图片压缩剪裁">
+<meta name="twitter:description" content="最近遇到一个面试题：如何把一个 1080P 的图片，修改为和设备屏幕宽度相同高度等比例的图片。当时没答上来，回来查了一下相关的知识点，记录一下。
+压缩和剪切图片：
+// 原始图片
+NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@&amp;quot;http://oersnre8d.bkt.clouddn.com">
 
 
 
@@ -113,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://amute.xyz/categories/something/"/>
+  <link rel="canonical" href="http://amute.xyz/2017/10/10/ProcessImage/"/>
 
-  <title> 分类: something | Pwnlc's Blog </title>
+  <title> iOS 图片压缩剪裁 | Pwnlc's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,103 +244,195 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        something
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-something" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/26/赡养人类/" itemprop="url">
-              
-                <span itemprop="name">赡养人类</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-26T14:00:00+08:00"
-              content="2017-06-26" >
-          06-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-something" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/08/20160908Apple/" itemprop="url">
-              
-                <span itemprop="name">After Apple 2016 Fall Event</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-08T18:50:00+08:00"
-              content="2016-09-08" >
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-something" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/29/first/" itemprop="url">
-              
-                <span itemprop="name">1st</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-29T16:30:49+08:00"
-              content="2016-08-29" >
-          08-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 图片压缩剪裁
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-10T13:24:00+08:00" content="2017-10-10">
+              2017-10-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/10/10/ProcessImage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/10/ProcessImage/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近遇到一个面试题：如何把一个 1080P 的图片，修改为和设备屏幕宽度相同高度等比例的图片。当时没答上来，回来查了一下相关的知识点，记录一下。</p>
+<p>压缩和剪切图片：</p>
+<pre><code>// 原始图片
+NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@&quot;http://oersnre8d.bkt.clouddn.com/planet.jpg&quot;]];
+NSLog(@&quot;原始 data length = %ld&quot;, imageData.length);
+UIImage *realPlanetImage = [UIImage imageWithData:imageData];
+NSLog(@&quot;image = %@&quot;, realPlanetImage);
+// 压缩
+NSData *newData = UIImageJPEGRepresentation(realPlanetImage, 0.1);
+NSLog(@&quot;修改压缩系数 data length = %ld&quot;, newData.length);
+NSLog(@&quot;image = %@&quot;, [UIImage imageWithData:newData]);
+// 裁剪
+UIImage *newImage = [self image:realPlanetImage fortargetSize:CGSizeMake(self.view.bounds.size.width, (realPlanetImage.size.height / realPlanetImage.size.width) * self.view.bounds.size.width)];
+NSData *newData2 = UIImageJPEGRepresentation(newImage, 1.0);
+NSLog(@&quot;裁剪之后 data length = %ld&quot;, newData2.length);
+NSLog(@&quot;image = %@&quot;, newImage);
+</code></pre><p>打印结果为：</p>
+<pre><code>原始 data length = 42566
+image = &lt;UIImage: 0x170091940&gt;, {1920, 1080}
+修改压缩系数 data length = 35632
+image = &lt;UIImage: 0x1740933d0&gt;, {1920, 1080}
+裁剪之后 data length = 15377
+image = &lt;UIImage: 0x1740933d0&gt;, {375, 211}
+</code></pre><p>由此可见：</p>
+<p>修改压缩系数，并不会改变图片的原始尺寸，即像素数不变，改变的是文件大小；</p>
+<p>对图片进行裁剪，像素数减少，图片的大小和尺寸都后进行改变。</p>
+<p>PS：</p>
+<pre><code>/**
+ 裁剪图片
+
+ @param image 原始图片
+ @param targetSize 目标大小
+ @return 新的图片
+ */
+- (UIImage*)image:(UIImage*)image fortargetSize:(CGSize)targetSize {
+    UIImage *sourceImage = image;
+    // 目标宽度高度
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaledWidth = targetWidth * [UIScreen mainScreen].scale;
+    CGFloat scaledHeight = targetHeight * [UIScreen mainScreen].scale;
+    // 剪切起始位置
+    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);
+    // 开始剪切
+    UIGraphicsBeginImageContext(targetSize);
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin= thumbnailPoint;
+    thumbnailRect.size.width= scaledWidth;
+    thumbnailRect.size.height= scaledHeight;
+    [sourceImage drawInRect:thumbnailRect];
+    // 拿到新图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    return newImage;
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/29/RoundAvatar/" rel="next" title="iOS 圆形头像">
+                <i class="fa fa-chevron-left"></i> iOS 圆形头像
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -338,6 +440,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/10/ProcessImage/"
+           data-title="iOS 图片压缩剪裁" data-url="http://amute.xyz/2017/10/10/ProcessImage/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -357,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -401,6 +520,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -504,6 +634,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

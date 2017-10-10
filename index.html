@@ -258,6 +258,179 @@
             
               
                 
+                <a class="post-title-link" href="/2017/10/10/ProcessImage/" itemprop="url">
+                  iOS 图片压缩剪裁
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-10-10T13:24:00+08:00" content="2017-10-10">
+              2017-10-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/10/10/ProcessImage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/10/ProcessImage/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近遇到一个面试题：如何把一个 1080P 的图片，修改为和设备屏幕宽度相同高度等比例的图片。当时没答上来，回来查了一下相关的知识点，记录一下。</p>
+<p>压缩和剪切图片：</p>
+<pre><code>// 原始图片
+NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:@&quot;http://oersnre8d.bkt.clouddn.com/planet.jpg&quot;]];
+NSLog(@&quot;原始 data length = %ld&quot;, imageData.length);
+UIImage *realPlanetImage = [UIImage imageWithData:imageData];
+NSLog(@&quot;image = %@&quot;, realPlanetImage);
+// 压缩
+NSData *newData = UIImageJPEGRepresentation(realPlanetImage, 0.1);
+NSLog(@&quot;修改压缩系数 data length = %ld&quot;, newData.length);
+NSLog(@&quot;image = %@&quot;, [UIImage imageWithData:newData]);
+// 裁剪
+UIImage *newImage = [self image:realPlanetImage fortargetSize:CGSizeMake(self.view.bounds.size.width, (realPlanetImage.size.height / realPlanetImage.size.width) * self.view.bounds.size.width)];
+NSData *newData2 = UIImageJPEGRepresentation(newImage, 1.0);
+NSLog(@&quot;裁剪之后 data length = %ld&quot;, newData2.length);
+NSLog(@&quot;image = %@&quot;, newImage);
+</code></pre><p>打印结果为：</p>
+<pre><code>原始 data length = 42566
+image = &lt;UIImage: 0x170091940&gt;, {1920, 1080}
+修改压缩系数 data length = 35632
+image = &lt;UIImage: 0x1740933d0&gt;, {1920, 1080}
+裁剪之后 data length = 15377
+image = &lt;UIImage: 0x1740933d0&gt;, {375, 211}
+</code></pre><p>由此可见：</p>
+<p>修改压缩系数，并不会改变图片的原始尺寸，即像素数不变，改变的是文件大小；</p>
+<p>对图片进行裁剪，像素数减少，图片的大小和尺寸都后进行改变。</p>
+<p>PS：</p>
+<pre><code>/**
+ 裁剪图片
+
+ @param image 原始图片
+ @param targetSize 目标大小
+ @return 新的图片
+ */
+- (UIImage*)image:(UIImage*)image fortargetSize:(CGSize)targetSize {
+    UIImage *sourceImage = image;
+    // 目标宽度高度
+    CGFloat targetWidth = targetSize.width;
+    CGFloat targetHeight = targetSize.height;
+    CGFloat scaledWidth = targetWidth * [UIScreen mainScreen].scale;
+    CGFloat scaledHeight = targetHeight * [UIScreen mainScreen].scale;
+    // 剪切起始位置
+    CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);
+    // 开始剪切
+    UIGraphicsBeginImageContext(targetSize);
+    CGRect thumbnailRect = CGRectZero;
+    thumbnailRect.origin= thumbnailPoint;
+    thumbnailRect.size.width= scaledWidth;
+    thumbnailRect.size.height= scaledHeight;
+    [sourceImage drawInRect:thumbnailRect];
+    // 拿到新图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    return newImage;
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/09/29/RoundAvatar/" itemprop="url">
                   iOS 圆形头像
                 </a>
@@ -1309,7 +1482,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
