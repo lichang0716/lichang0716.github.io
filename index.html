@@ -1351,6 +1351,198 @@ by including the appropriate purpose string keys in your Info.plist file.
   
   
 
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/17/Countdown/" itemprop="url">
+                  iOS 倒计时的简单实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T12:40:00+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/17/Countdown/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/Countdown/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近封装 UI 的时候，有一个倒计时的功能，直接用的是 NSTimer。</p>
+<p>后来搜了下还有其他两种方法，这里记录一下（只是简单实现，实际应用需要完善）</p>
+<h3 id="NSTimer"><a href="#NSTimer" class="headerlink" title="NSTimer"></a>NSTimer</h3><p>计时器是应该是最常见，也是最常用的一种：</p>
+<p>声明：</p>
+<pre><code>int timeDown;
+NSTimer *timer;
+</code></pre><p>调用：</p>
+<pre><code>timeDown = 59;
+timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                         target:self
+                                       selector:@selector(handleTimer)
+                                       userInfo:nil
+                                        repeats:YES];
+[timer fire];
+</code></pre><p>实现：</p>
+<pre><code>- (void)handleTimer {
+    if(timeDown &gt; 0) {
+        _timerLabel.text = [NSString stringWithFormat:@&quot;%d&quot;, timeDown];
+    } else {
+        _timerLabel.text = @&quot;倒计时结束&quot;;
+        [timer invalidate];
+    }
+    timeDown = timeDown - 1;
+}
+</code></pre><h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><p>NSThread 用到的是 <strong>performSelectorInBackground:withObject:</strong> 方法</p>
+<p>声明：</p>
+<pre><code>int count;
+</code></pre><p>调用：</p>
+<pre><code>[self performSelectorInBackground:@selector(threadCounting) withObject:nil];
+</code></pre><p>实现：</p>
+<pre><code>- (void)threadCounting {
+    for(int i = 59; i &gt;= 0; i--) {
+        count = i;
+        // 更新 Label 需要在主线程执行
+        [self performSelectorOnMainThread:@selector(mainThreadCounting)
+                               withObject:nil
+                            waitUntilDone:YES];
+        sleep(1);
+    }
+}
+
+- (void)mainThreadCounting {
+    if (count &gt; 0) {
+        _timerLabel.text=[NSString stringWithFormat:@&quot;%d&quot;,count];
+    } else {
+        _timerLabel.text = @&quot;倒计时结束&quot;;
+    }
+}
+</code></pre><h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>GCD 中有一个定时器模式：</p>
+<p>实现：</p>
+<pre><code>- (void)gcdCouting {
+    __block int second = 59;
+    // 默认优先级的全局队列
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    // 定时器模式
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    // 设置 1 秒间隔
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        // 回到主线程更新 label
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (second &gt;= 0) {
+                _timerLabel.text = [NSString stringWithFormat:@&quot;%d&quot;, second];
+                second --;
+            } else {
+                dispatch_source_cancel(timer);
+                _timerLabel.text = @&quot;倒计时结束&quot;;
+            }
+        });
+    });
+    dispatch_resume(timer);
+}
+</code></pre><p>以上就是三种常用的倒计时方法。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-something " itemscope itemtype="http://schema.org/Article">
 
     
@@ -1629,7 +1821,7 @@ by including the appropriate purpose string keys in your Info.plist file.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

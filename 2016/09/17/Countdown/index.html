@@ -84,43 +84,40 @@
 
 
 
-<meta name="description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
-比如：How to remove CocoaPods from a project? - Stack Overflow.
-这里自己再整理一遍.
-当前环境：
-Project: Objective-C
-Xcode: 8.1 GM
-Pod: 1.0.0.beta.3
-步骤：
-
-删除项目文件夹中的 Podfi">
+<meta name="description" content="最近封装 UI 的时候，有一个倒计时的功能，直接用的是 NSTimer。
+后来搜了下还有其他两种方法，这里记录一下（只是简单实现，实际应用需要完善）
+NSTimer计时器是应该是最常见，也是最常用的一种：
+声明：
+int timeDown;
+NSTimer *timer;
+调用：
+timeDown = 59;
+timer = [NSTimer scheduledTimerWithTimeInter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移除项目中的 CocoaPods">
-<meta property="og:url" content="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/index.html">
+<meta property="og:title" content="iOS 倒计时的简单实现">
+<meta property="og:url" content="http://amute.xyz/2016/09/17/Countdown/index.html">
 <meta property="og:site_name" content="Pwnlc's Blog">
-<meta property="og:description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
-比如：How to remove CocoaPods from a project? - Stack Overflow.
-这里自己再整理一遍.
-当前环境：
-Project: Objective-C
-Xcode: 8.1 GM
-Pod: 1.0.0.beta.3
-步骤：
-
-删除项目文件夹中的 Podfi">
-<meta property="og:updated_time" content="2016-10-26T08:12:37.000Z">
+<meta property="og:description" content="最近封装 UI 的时候，有一个倒计时的功能，直接用的是 NSTimer。
+后来搜了下还有其他两种方法，这里记录一下（只是简单实现，实际应用需要完善）
+NSTimer计时器是应该是最常见，也是最常用的一种：
+声明：
+int timeDown;
+NSTimer *timer;
+调用：
+timeDown = 59;
+timer = [NSTimer scheduledTimerWithTimeInter">
+<meta property="og:updated_time" content="2017-10-11T04:56:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="移除项目中的 CocoaPods">
-<meta name="twitter:description" content="关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。
-比如：How to remove CocoaPods from a project? - Stack Overflow.
-这里自己再整理一遍.
-当前环境：
-Project: Objective-C
-Xcode: 8.1 GM
-Pod: 1.0.0.beta.3
-步骤：
-
-删除项目文件夹中的 Podfi">
+<meta name="twitter:title" content="iOS 倒计时的简单实现">
+<meta name="twitter:description" content="最近封装 UI 的时候，有一个倒计时的功能，直接用的是 NSTimer。
+后来搜了下还有其他两种方法，这里记录一下（只是简单实现，实际应用需要完善）
+NSTimer计时器是应该是最常见，也是最常用的一种：
+声明：
+int timeDown;
+NSTimer *timer;
+调用：
+timeDown = 59;
+timer = [NSTimer scheduledTimerWithTimeInter">
 
 
 
@@ -141,9 +138,9 @@ Pod: 1.0.0.beta.3
 
 
 
-  <link rel="canonical" href="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/"/>
+  <link rel="canonical" href="http://amute.xyz/2016/09/17/Countdown/"/>
 
-  <title> 移除项目中的 CocoaPods | Pwnlc's Blog </title>
+  <title> iOS 倒计时的简单实现 | Pwnlc's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +280,7 @@ Pod: 1.0.0.beta.3
             
             
               
-                移除项目中的 CocoaPods
+                iOS 倒计时的简单实现
               
             
           </h1>
@@ -295,8 +292,8 @@ Pod: 1.0.0.beta.3
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-26T15:47:34+08:00" content="2016-10-26">
-              2016-10-26
+            <time itemprop="dateCreated" datetime="2016-09-17T12:40:00+08:00" content="2016-09-17">
+              2016-09-17
             </time>
           </span>
 
@@ -325,8 +322,8 @@ Pod: 1.0.0.beta.3
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/26/移除项目中的 CocoaPods/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/26/移除项目中的 CocoaPods/" itemprop="commentsCount"></span>
+                <a href="/2016/09/17/Countdown/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/17/Countdown/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,28 +346,79 @@ Pod: 1.0.0.beta.3
       
 
       
-        <p>关于如何移除 iOS 项目中使用的 CocoaPods，这类问题可以 Google 出不少答案。</p>
-<p>比如：<a href="http://stackoverflow.com/questions/16427421/how-to-remove-cocoapods-from-a-project" target="_blank" rel="external">How to remove CocoaPods from a project? - Stack Overflow</a>.</p>
-<p>这里自己再整理一遍.</p>
-<p>当前环境：</p>
-<pre><code>Project: Objective-C
-Xcode: 8.1 GM
-Pod: 1.0.0.beta.3
-</code></pre><p>步骤：</p>
-<ul>
-<li>删除项目文件夹中的 <strong>Podfile</strong> , <strong>Podfile.lock</strong> 和 <strong>Pods 文件夹</strong>；</li>
-<li>删除生成的 <strong>.xcworkspce</strong> 文件</li>
-<li>从 <strong>.xcodeproj</strong> 打开项目，删除对应 <strong>targets -&gt; General -&gt; Linked Frameworks and Libraries -&gt; libPods.a</strong></li>
-<li>在对应 <strong>targets -&gt; Build Phases</strong>，删除 <strong>Copy Pods Resources</strong>，<strong>Embed Pods Frameworks</strong> 以及 <strong>Check Pods Manifest.lock</strong></li>
-</ul>
-<p>到这里操作基本完成。</p>
-<hr>
-<p>但是在我的项目中此时出现了大量的 <strong>Warning</strong>，大都提示为 missing file 之类。</p>
-<p>后来发现原因是因为使用了 git， 这时对项目进行一次 <strong>commit</strong> 操作即可修复这些警告。</p>
-<hr>
-<p>同时发现了一个插件，应该可以取代部分手动操作，还没有实验，这里先贴出来地址：</p>
-<p><a href="https://github.com/CocoaPods/cocoapods-deintegrate" target="_blank" rel="external">cocoapods-deintegrate - GitHub</a></p>
-<p>有兴趣可以试一下。</p>
+        <p>最近封装 UI 的时候，有一个倒计时的功能，直接用的是 NSTimer。</p>
+<p>后来搜了下还有其他两种方法，这里记录一下（只是简单实现，实际应用需要完善）</p>
+<h3 id="NSTimer"><a href="#NSTimer" class="headerlink" title="NSTimer"></a>NSTimer</h3><p>计时器是应该是最常见，也是最常用的一种：</p>
+<p>声明：</p>
+<pre><code>int timeDown;
+NSTimer *timer;
+</code></pre><p>调用：</p>
+<pre><code>timeDown = 59;
+timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                         target:self
+                                       selector:@selector(handleTimer)
+                                       userInfo:nil
+                                        repeats:YES];
+[timer fire];
+</code></pre><p>实现：</p>
+<pre><code>- (void)handleTimer {
+    if(timeDown &gt; 0) {
+        _timerLabel.text = [NSString stringWithFormat:@&quot;%d&quot;, timeDown];
+    } else {
+        _timerLabel.text = @&quot;倒计时结束&quot;;
+        [timer invalidate];
+    }
+    timeDown = timeDown - 1;
+}
+</code></pre><h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><p>NSThread 用到的是 <strong>performSelectorInBackground:withObject:</strong> 方法</p>
+<p>声明：</p>
+<pre><code>int count;
+</code></pre><p>调用：</p>
+<pre><code>[self performSelectorInBackground:@selector(threadCounting) withObject:nil];
+</code></pre><p>实现：</p>
+<pre><code>- (void)threadCounting {
+    for(int i = 59; i &gt;= 0; i--) {
+        count = i;
+        // 更新 Label 需要在主线程执行
+        [self performSelectorOnMainThread:@selector(mainThreadCounting)
+                               withObject:nil
+                            waitUntilDone:YES];
+        sleep(1);
+    }
+}
+
+- (void)mainThreadCounting {
+    if (count &gt; 0) {
+        _timerLabel.text=[NSString stringWithFormat:@&quot;%d&quot;,count];
+    } else {
+        _timerLabel.text = @&quot;倒计时结束&quot;;
+    }
+}
+</code></pre><h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>GCD 中有一个定时器模式：</p>
+<p>实现：</p>
+<pre><code>- (void)gcdCouting {
+    __block int second = 59;
+    // 默认优先级的全局队列
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    // 定时器模式
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    // 设置 1 秒间隔
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        // 回到主线程更新 label
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            if (second &gt;= 0) {
+                _timerLabel.text = [NSString stringWithFormat:@&quot;%d&quot;, second];
+                second --;
+            } else {
+                dispatch_source_cancel(timer);
+                _timerLabel.text = @&quot;倒计时结束&quot;;
+            }
+        });
+    });
+    dispatch_resume(timer);
+}
+</code></pre><p>以上就是三种常用的倒计时方法。</p>
 
       
     </div>
@@ -396,16 +444,16 @@ Pod: 1.0.0.beta.3
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/09/iOS10Privacy/" rel="next" title="iOS 10 配置隐私数据权限">
-                <i class="fa fa-chevron-left"></i> iOS 10 配置隐私数据权限
+              <a href="/2016/09/08/20160908Apple/" rel="next" title="After Apple 2016 Fall Event">
+                <i class="fa fa-chevron-left"></i> After Apple 2016 Fall Event
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/10/MultiGesture/" rel="prev" title="iOS View 添加多个手势">
-                iOS View 添加多个手势 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/09/iOS10Privacy/" rel="prev" title="iOS 10 配置隐私数据权限">
+                iOS 10 配置隐私数据权限 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -432,8 +480,8 @@ Pod: 1.0.0.beta.3
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/26/移除项目中的 CocoaPods/"
-           data-title="移除项目中的 CocoaPods" data-url="http://amute.xyz/2016/10/26/移除项目中的 CocoaPods/">
+      <div class="ds-thread" data-thread-key="2016/09/17/Countdown/"
+           data-title="iOS 倒计时的简单实现" data-url="http://amute.xyz/2016/09/17/Countdown/">
       </div>
     
   </div>
@@ -517,7 +565,7 @@ Pod: 1.0.0.beta.3
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSTimer"><span class="nav-number">1.</span> <span class="nav-text">NSTimer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSThread"><span class="nav-number">2.</span> <span class="nav-text">NSThread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCD"><span class="nav-number">3.</span> <span class="nav-text">GCD</span></a></li></ol></div>
             
           </div>
         </section>
