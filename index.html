@@ -258,6 +258,157 @@
             
               
                 
+                <a class="post-title-link" href="/2018/03/01/Cocoapods install/" itemprop="url">
+                  Cocoapods 安装梳理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-01T20:52:00+08:00" content="2018-03-01">
+              2018-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/03/01/Cocoapods install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/01/Cocoapods install/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="RVM"><a href="#RVM" class="headerlink" title="RVM"></a>RVM</h2><p>1.安装 <a href="http://www.rvm.io" target="_blank" rel="external">RVM</a>（Ruby Version Manager)</p>
+<pre><code>curl -sSL https://get.rvm.io | bash -s stable
+source ~/.bashrc
+source ~/.bash_profile
+</code></pre><p>2.获取可以安装的版本列表<code>rvm list known</code> </p>
+<p>3.安装版本<code>rvm install 2.4.1</code></p>
+<p>4.设置版本<code>rvm use 2.4.1 --default</code></p>
+<p>5.安装 Ruby 之前，可能会遇到问题</p>
+<pre><code>Updating system.........
+Installing required packages: autoconf, automake, libtool, pkg-config, coreutils, libyaml, readline, libksba, openssl@1.1
+</code></pre><p>失败的话，使用 <code>brew install</code> 缺什么安装什么，安装完成之后，再安装 Ruby。</p>
+<h2 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h2><p>1.查看 Ruby 版本 <code>ruby -v</code></p>
+<p>2.<code>sudo gem update --system</code></p>
+<p>3.查看当前源 <code>gem sources -l</code> </p>
+<p>4.去掉源 <code>gem source --remove</code></p>
+<p>5.修改为 ruby-china 的源 <code>gem sources -a https://gems.ruby-china.org/</code></p>
+<p>6.安装 rails <code>gem install rails</code></p>
+<h2 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>1.安装 Cocoapods <code>sudo gem install cocoapods</code></p>
+<p>2.第一次使用需要进行 <code>pod setup</code> </p>
+<p>3.也可以进入 <code>cd ~/.cocoapods/repo</code></p>
+<p>4.使用命令 <code>git clone https://github.com/CocoaPods/Specs.git</code>  </p>
+<p>5.如果速度太慢的话参考下个模块，clone 结束后，移到 master 文件夹内</p>
+<p>6.查看源 <code>pod repo</code> </p>
+<p>7.查看 Pod 版本 <code>pod --version</code> </p>
+<h3 id="Unistall"><a href="#Unistall" class="headerlink" title="Unistall"></a>Unistall</h3><p>1.移除 Pod 组件 <code>which pod</code>，<code>rm -rf</code> 对应路径的文件</p>
+<p>2.移除 Gems 中的 Cocoapods 程序包 <code>gem list</code> 获取列表，然后使用 <code>sudo gem uninstall</code></p>
+<h2 id="Git-Clone-Too-Slow"><a href="#Git-Clone-Too-Slow" class="headerlink" title="Git Clone Too Slow"></a>Git Clone Too Slow</h2><p>1.修改 Host</p>
+<pre><code>151.101.76.249 github.global.ssl.fastly.net 
+192.30.253.112 github.com
+</code></pre><p>2.设置代理</p>
+<pre><code>git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-develop " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/10/10/ProcessImage/" itemprop="url">
                   iOS 图片压缩剪裁
                 </a>
@@ -1658,131 +1809,13 @@ timer = [NSTimer scheduledTimerWithTimeInterval:1.0
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-something " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/29/first/" itemprop="url">
-                  1st
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-29T16:30:49+08:00" content="2016-08-29">
-              2016-08-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/something/" itemprop="url" rel="index">
-                    <span itemprop="name">something</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/29/first/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/first/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>OK，其实昨天想了挺长时间，最后还是决定要继续弄博客。</p>
-<p>今天下午偷偷把之前的博客改成 Hexo，之后再看看怎么使用吧。</p>
-<p>以上。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1821,7 +1854,7 @@ timer = [NSTimer scheduledTimerWithTimeInterval:1.0
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1868,7 +1901,7 @@ timer = [NSTimer scheduledTimerWithTimeInterval:1.0
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

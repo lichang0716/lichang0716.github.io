@@ -84,37 +84,34 @@
 
 
 
-<meta name="description" content="开发者网址：dev.twitter.com
-准备首先需要注册 twitter 开发者账号，
-之后进入 apps.twitter.com 创建应用。
-创建应用必须要填写 Name，Description，Website 三项。
-关于 Callback URL ：
-测试当通过 App 进行授权登录时，可以为空；
-当通过网页授权登录时，必须要填写 URL，否则会提示下面所示的错误：
-[TwitterKi">
+<meta name="description" content="RVM1.安装 RVM（Ruby Version Manager)
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.bashrc
+source ~/.bash_profile
+2.获取可以安装的版本列表rvm list known 
+3.安装版本rvm install 2.4.1
+4.设置版本rvm use 2.4.1 --defau">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Twitter Login">
-<meta property="og:url" content="http://amute.xyz/2017/06/21/twitter login/index.html">
+<meta property="og:title" content="Cocoapods 安装梳理">
+<meta property="og:url" content="http://amute.xyz/2018/03/01/Cocoapods install/index.html">
 <meta property="og:site_name" content="Pwnlc's Blog">
-<meta property="og:description" content="开发者网址：dev.twitter.com
-准备首先需要注册 twitter 开发者账号，
-之后进入 apps.twitter.com 创建应用。
-创建应用必须要填写 Name，Description，Website 三项。
-关于 Callback URL ：
-测试当通过 App 进行授权登录时，可以为空；
-当通过网页授权登录时，必须要填写 URL，否则会提示下面所示的错误：
-[TwitterKi">
-<meta property="og:updated_time" content="2017-09-16T10:01:06.000Z">
+<meta property="og:description" content="RVM1.安装 RVM（Ruby Version Manager)
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.bashrc
+source ~/.bash_profile
+2.获取可以安装的版本列表rvm list known 
+3.安装版本rvm install 2.4.1
+4.设置版本rvm use 2.4.1 --defau">
+<meta property="og:updated_time" content="2018-03-14T13:05:11.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Twitter Login">
-<meta name="twitter:description" content="开发者网址：dev.twitter.com
-准备首先需要注册 twitter 开发者账号，
-之后进入 apps.twitter.com 创建应用。
-创建应用必须要填写 Name，Description，Website 三项。
-关于 Callback URL ：
-测试当通过 App 进行授权登录时，可以为空；
-当通过网页授权登录时，必须要填写 URL，否则会提示下面所示的错误：
-[TwitterKi">
+<meta name="twitter:title" content="Cocoapods 安装梳理">
+<meta name="twitter:description" content="RVM1.安装 RVM（Ruby Version Manager)
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.bashrc
+source ~/.bash_profile
+2.获取可以安装的版本列表rvm list known 
+3.安装版本rvm install 2.4.1
+4.设置版本rvm use 2.4.1 --defau">
 
 
 
@@ -135,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://amute.xyz/2017/06/21/twitter login/"/>
+  <link rel="canonical" href="http://amute.xyz/2018/03/01/Cocoapods install/"/>
 
-  <title> Twitter Login | Pwnlc's Blog </title>
+  <title> Cocoapods 安装梳理 | Pwnlc's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +274,7 @@
             
             
               
-                Twitter Login
+                Cocoapods 安装梳理
               
             
           </h1>
@@ -289,8 +286,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-06-21T12:00:00+08:00" content="2017-06-21">
-              2017-06-21
+            <time itemprop="dateCreated" datetime="2018-03-01T20:52:00+08:00" content="2018-03-01">
+              2018-03-01
             </time>
           </span>
 
@@ -319,8 +316,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/06/21/twitter login/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/21/twitter login/" itemprop="commentsCount"></span>
+                <a href="/2018/03/01/Cocoapods install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/01/Cocoapods install/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -343,33 +340,39 @@
       
 
       
-        <p>开发者网址：<a href="https://dev.twitter.com/" target="_blank" rel="external">dev.twitter.com</a></p>
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>首先需要注册 twitter 开发者账号，</p>
-<p>之后进入 <a href="https://apps.twitter.com/" target="_blank" rel="external">apps.twitter.com</a> 创建应用。</p>
-<p>创建应用必须要填写 <strong>Name</strong>，<strong>Description</strong>，<strong>Website</strong> 三项。</p>
-<p>关于 <strong>Callback URL</strong> ：</p>
-<p>测试当通过 <strong>App</strong> 进行授权登录时，可以为空；</p>
-<p>当通过<strong>网页</strong>授权登录时，必须要填写 URL，否则会提示下面所示的错误：</p>
-<p><code>[TwitterKit] did encounter error with message &quot;Error obtaining user auth token.&quot;</code></p>
-<p>创建应用后，在 Keys and Access Tokens 页面获取 <strong>Consumer Key</strong> 和 <strong>Consumer Secret</strong>。 </p>
-<h3 id="工程"><a href="#工程" class="headerlink" title="工程"></a>工程</h3><p><strong>配置</strong>工程：<a href="https://dev.twitter.com/twitterkit/ios/installation" target="_blank" rel="external">twitterkit iOS installation</a></p>
-<ul>
-<li>在项目中导入 <a href="https://dev.twitter.com/twitterkit/ios/installation" target="_blank" rel="external">iOS SDK</a></li>
-<li>在项目 App Delegate 中初始化 Twitter 类</li>
-<li>在 info.plist 中配置 URLSchemes 和 LSApplicationQueriesSchemes</li>
-<li>如果使用网页登录，需要添加 SafariServices.framework</li>
-</ul>
-<p><strong>登录</strong>步骤：<a href="https://dev.twitter.com/twitterkit/ios/log-in-with-twitter" target="_blank" rel="external">twitterkit iOS login</a></p>
-<ul>
-<li><p>在 ViewController 中添加 TWTRLogInButton 或者自定义按钮添加 logInWithCompletion 动作</p>
-</li>
-<li><p>在 -application:openURL:options: 中实现 -twitter:openURL:options 方法，</p>
-<p>此方法会在返回自己应用的时候，对 token 进行保存操作。</p>
-</li>
-</ul>
-<p>登录成功后，在回调里的 TWTRSession 对象中获取 token，username，userid 等信息。</p>
-<p>Demo 地址：<a href="https://github.com/lichang0716/OAuth-TwitterLogin" target="_blank" rel="external">Twitter Login - Swift</a></p>
-
+        <h2 id="RVM"><a href="#RVM" class="headerlink" title="RVM"></a>RVM</h2><p>1.安装 <a href="http://www.rvm.io" target="_blank" rel="external">RVM</a>（Ruby Version Manager)</p>
+<pre><code>curl -sSL https://get.rvm.io | bash -s stable
+source ~/.bashrc
+source ~/.bash_profile
+</code></pre><p>2.获取可以安装的版本列表<code>rvm list known</code> </p>
+<p>3.安装版本<code>rvm install 2.4.1</code></p>
+<p>4.设置版本<code>rvm use 2.4.1 --default</code></p>
+<p>5.安装 Ruby 之前，可能会遇到问题</p>
+<pre><code>Updating system.........
+Installing required packages: autoconf, automake, libtool, pkg-config, coreutils, libyaml, readline, libksba, openssl@1.1
+</code></pre><p>失败的话，使用 <code>brew install</code> 缺什么安装什么，安装完成之后，再安装 Ruby。</p>
+<h2 id="Ruby"><a href="#Ruby" class="headerlink" title="Ruby"></a>Ruby</h2><p>1.查看 Ruby 版本 <code>ruby -v</code></p>
+<p>2.<code>sudo gem update --system</code></p>
+<p>3.查看当前源 <code>gem sources -l</code> </p>
+<p>4.去掉源 <code>gem source --remove</code></p>
+<p>5.修改为 ruby-china 的源 <code>gem sources -a https://gems.ruby-china.org/</code></p>
+<p>6.安装 rails <code>gem install rails</code></p>
+<h2 id="Cocoapods"><a href="#Cocoapods" class="headerlink" title="Cocoapods"></a>Cocoapods</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>1.安装 Cocoapods <code>sudo gem install cocoapods</code></p>
+<p>2.第一次使用需要进行 <code>pod setup</code> </p>
+<p>3.也可以进入 <code>cd ~/.cocoapods/repo</code></p>
+<p>4.使用命令 <code>git clone https://github.com/CocoaPods/Specs.git</code>  </p>
+<p>5.如果速度太慢的话参考下个模块，clone 结束后，移到 master 文件夹内</p>
+<p>6.查看源 <code>pod repo</code> </p>
+<p>7.查看 Pod 版本 <code>pod --version</code> </p>
+<h3 id="Unistall"><a href="#Unistall" class="headerlink" title="Unistall"></a>Unistall</h3><p>1.移除 Pod 组件 <code>which pod</code>，<code>rm -rf</code> 对应路径的文件</p>
+<p>2.移除 Gems 中的 Cocoapods 程序包 <code>gem list</code> 获取列表，然后使用 <code>sudo gem uninstall</code></p>
+<h2 id="Git-Clone-Too-Slow"><a href="#Git-Clone-Too-Slow" class="headerlink" title="Git Clone Too Slow"></a>Git Clone Too Slow</h2><p>1.修改 Host</p>
+<pre><code>151.101.76.249 github.global.ssl.fastly.net 
+192.30.253.112 github.com
+</code></pre><p>2.设置代理</p>
+<pre><code>git config --global http.https://github.com.proxy socks5://127.0.0.1:1080
+git config --global https.https://github.com.proxy socks5://127.0.0.1:1080
+</code></pre>
       
     </div>
 
@@ -394,17 +397,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/10/MultiGesture/" rel="next" title="iOS View 添加多个手势">
-                <i class="fa fa-chevron-left"></i> iOS View 添加多个手势
+              <a href="/2017/10/10/ProcessImage/" rel="next" title="iOS 图片压缩剪裁">
+                <i class="fa fa-chevron-left"></i> iOS 图片压缩剪裁
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/26/赡养人类/" rel="prev" title="赡养人类">
-                赡养人类 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -430,8 +429,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/06/21/twitter login/"
-           data-title="Twitter Login" data-url="http://amute.xyz/2017/06/21/twitter login/">
+      <div class="ds-thread" data-thread-key="2018/03/01/Cocoapods install/"
+           data-title="Cocoapods 安装梳理" data-url="http://amute.xyz/2018/03/01/Cocoapods install/">
       </div>
     
   </div>
@@ -515,7 +514,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工程"><span class="nav-number">2.</span> <span class="nav-text">工程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RVM"><span class="nav-number">1.</span> <span class="nav-text">RVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ruby"><span class="nav-number">2.</span> <span class="nav-text">Ruby</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cocoapods"><span class="nav-number">3.</span> <span class="nav-text">Cocoapods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">3.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unistall"><span class="nav-number">3.2.</span> <span class="nav-text">Unistall</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Clone-Too-Slow"><span class="nav-number">4.</span> <span class="nav-text">Git Clone Too Slow</span></a></li></ol></div>
             
           </div>
         </section>
